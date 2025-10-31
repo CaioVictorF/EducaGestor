@@ -10,9 +10,18 @@
     <h2>Turmas</h2>
     
     @if(session('success'))
-        <p>
+        <p style="color: #086;">
             {{ session('success') }}
         </p>
     @endif
+    
+    @forelse($turmas as $turma)
+        <br>ID: {{ $turma->id }}<br>
+        Nome: {{ $turma->nome }}<br>
+        Horário: {{ $turma->horario }}<br>
+        <a href="{{ route('turmas.show', ['turma' => $turma->id]) }}">Visualizar</a><hr>
+    @empty
+    @endforelse
+
 </body>
 </html>

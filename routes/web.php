@@ -14,9 +14,10 @@ use Laravel\Fortify\Features;
 
 // Essa rota puxa a página de turmas acessando a classe TurmasController, utilizando o método index.
 Route::get('/turmas', [TurmasController::class, 'index'])->name('turmas.index');
-
+Route::get('/show-turma/{turma}', [TurmasController::class,'show'])->name('turmas.show');
 Route::get('/criar-turma', [TurmasController::class,'create'])->name('turmas.create');
 Route::post('/store-turmas', [TurmasController::class, 'store'])->name('store-turmas');
+
 
 
 

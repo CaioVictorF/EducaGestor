@@ -10,7 +10,15 @@ use App\Models\Turmas;
 class TurmasController extends Controller
 {
     public function index(){
-        return view('turmas.index');
+        //Recuperando registros do Banco de dados
+        $turmas = Turmas::orderByDesc('id')->get();
+
+        return view('turmas.index', ['turmas' => $turmas]);
+    }
+
+    public function show(Turmas $turma){
+        
+        return view('turmas.show', ['turma' => $turma]);
     }
 
     public function create(){
@@ -18,14 +26,16 @@ class TurmasController extends Controller
     }
 
     public function store(TurmasRequest $request){
-        // validando formulário
+        //Validando formulário
         $request->validated();
 
+        //Cadastrando nova turma
         Turmas::create([
             'nome' => $request->nome,
             'horario' => $request->horario
         ]);
-        return redirect()->route('turmas.index')->with('sucsess', 'Nova turma foi criada!');
+        //Redirecionando usuário com mensagem de sucesso
+        return redirect()->route('turmas.index')->with('success', 'Nova turma foi criada!');
     }
 }
 
