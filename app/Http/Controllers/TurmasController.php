@@ -11,7 +11,7 @@ class TurmasController extends Controller
 {
     public function index(){
         //Recuperando registros do Banco de dados
-        $turmas = Turmas::orderByDesc('id')->get();
+        $turmas = Turmas::orderBy('id')->get();
 
         return view('turmas.index', ['turmas' => $turmas]);
     }
