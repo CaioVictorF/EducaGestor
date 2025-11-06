@@ -19,8 +19,11 @@ Route::get('/show-turma/{turma}', [TurmasController::class,'show'])->name('turma
 
 Route::get('/criar-turma', [TurmasController::class,'create'])->name('turmas.create');
 
-Route::post('/store-turmas', [TurmasController::class, 'store'])->name('store-turmas');
+Route::post('/store-turma', [TurmasController::class, 'store'])->name('store-turmas');
 
+Route::get('/edit-turma/{turma}', [TurmasController::class,'edit'])->name('turmas.edit');
+
+Route::put('/update-turma/{turma}', [TurmasController::class, 'update'])->name('turma-update');
 
 
 

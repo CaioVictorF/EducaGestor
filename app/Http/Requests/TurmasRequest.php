@@ -21,6 +21,7 @@ class TurmasRequest extends FormRequest
      */
     public function rules(): array
     {
+        //$userId = $this->route('turma');
         return [
             'nome' => 'required',
             'horario' => 'required|date_format:H:i'

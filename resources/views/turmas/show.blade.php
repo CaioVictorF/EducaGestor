@@ -7,7 +7,9 @@
 </head>
 <body>
     <a href="{{ route('turmas.index') }}">Voltar</a>
+    <a href="{{ route('turmas.edit', ['turma' => $turma->id]) }}">Editar</a>
     <h2>Alunos Matriculados</h2>
+     
 </body>
-</html>    <!-- The biggest battle is the war against ignorance. - Mustafa Kemal Atatürk -->
+</html>    
 </div>

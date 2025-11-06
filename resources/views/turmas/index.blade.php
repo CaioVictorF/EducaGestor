@@ -19,7 +19,8 @@
         <br>ID: {{ $turma->id }}<br>
         Nome: {{ $turma->nome }}<br>
         Horário: {{ $turma->horario }}<br>
-        <a href="{{ route('turmas.show', ['turma' => $turma->id]) }}">Visualizar</a><hr>
+        <a href="{{ route('turmas.show', ['turma' => $turma->id]) }}">Visualizar</a>
+        <a href="{{ route('turmas.edit', ['turma' => $turma->id]) }}">Editar</a><hr>
     @empty
     @endforelse
 
