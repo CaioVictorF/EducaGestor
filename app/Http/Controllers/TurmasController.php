@@ -52,5 +52,12 @@ class TurmasController extends Controller
         ]);
         return redirect()->route('turmas.index', ['turma' => $turma->id])->with('success', 'Turma atualizada!');
     }
+
+    public function destroy(Turmas $turma){
+        //Deletando turma
+        $turma->delete();
+        return redirect()->route('turmas.index', ['turma' => $turma->id])->with('success', 'Turma excluída!');
+        
+    }
 }
 

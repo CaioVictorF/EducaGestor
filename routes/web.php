@@ -25,6 +25,8 @@ Route::get('/edit-turma/{turma}', [TurmasController::class,'edit'])->name('turma
 
 Route::put('/update-turma/{turma}', [TurmasController::class, 'update'])->name('turma-update');
 
+Route::delete('/destroy-turma/{turma}', [TurmasController::class,'destroy'])->name('turmas.destroy');
+
 
 
 
