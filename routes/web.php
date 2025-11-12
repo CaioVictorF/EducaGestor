@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\TurmasController;
+use App\Http\Controllers\AlunosController;
 use App\Livewire\Settings\Appearance;
 use App\Livewire\Settings\Password;
 use App\Livewire\Settings\Profile;
@@ -28,7 +29,10 @@ Route::put('/update-turma/{turma}', [TurmasController::class, 'update'])->name('
 Route::delete('/destroy-turma/{turma}', [TurmasController::class,'destroy'])->name('turmas.destroy');
 
 
+// Essa rota puxa a página de alunos acessando a classe AlunosController, utilizando o método index.
+Route::get('/criar-alunos', [AlunosController::class, 'create'])->name('alunos.create');
 
+Route::post('/store-alnos', [AlunosController::class, 'store'])->name('store-alunos');
 
 
 

@@ -19,6 +19,10 @@ return new class extends Migration
             $table->string('transtornos');
             $table->string('nome_responsável');
             $table->integer('numero_responsável');
+            $table->decimal('mensalidade');
+
+            $table->foreignId('turma_id')->constrained('turmas')->onDelete('cascade');
+
             $table->timestamps();
         });
     }
