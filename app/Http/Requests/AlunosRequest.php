@@ -22,22 +22,24 @@ class AlunosRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nome_aluno' => 'required',
+            'nome' => 'required',
             'matricula' => 'required',
-            'endereço' => 'required',
-            'nome_responsável' => 'required',
-            'numero_responsável' => 'required',
+            'endereco' => 'required',
+            'transtornos' => 'required',
+            'nome_responsavel' => 'required',
+            'numero_responsavel' => 'required',
             'mensalidade' => 'required'
         ];
     }
 
     public function messages(): array{
         return[
-            'nome_aluno' => 'Campo nome é obrigatório!',
+            'nome' => 'Campo nome é obrigatório!',
             'matricula' => 'Campo matrícula é obrigatório!',
-            'endereço' => 'Campo endereço é obrigatório!',
-            'nome_responsável' => 'Campo responsáveis é obrigatório!',
-            'numero_responsável' => 'Campo numero responsável é obrigatório!',
+            'endereco' => 'Campo endereço é obrigatório!',
+            'transtornos' => 'Campo transtornos é obrigatório!',
+            'nome_responsavel' => 'Campo responsável é obrigatório!',
+            'numero_responsavel' => 'Campo numero responsável é obrigatório!',
             'mensalidade' => 'Campo mensalidade é obrigatório!'
 
         ];

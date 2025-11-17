@@ -30,9 +30,9 @@ Route::delete('/destroy-turma/{turma}', [TurmasController::class,'destroy'])->na
 
 
 // Essa rota puxa a página de alunos acessando a classe AlunosController, utilizando o método index.
-Route::get('/criar-alunos', [AlunosController::class, 'create'])->name('alunos.create');
+Route::get('/turmas/{turma}/criar-alunos', [AlunosController::class, 'create'])->name('alunos.create');
 
-Route::post('/store-alnos', [AlunosController::class, 'store'])->name('store-alunos');
+Route::post('/turmas/{turma}/alunos', [AlunosController::class, 'store'])->name('store.alunos');
 
 
 

@@ -7,20 +7,20 @@
 </head>
 <body>
     <h1>Cadastre um novo aluno(a)</h1>
-    <form action="{{ route('store-alunos') }}" method="POST">
+    <form action="{{ route('store.alunos', $turma->id) }}" method="POST">
         @csrf
         <label>Nome:</label>
         <input type="text" name="nome" value="{{ old('nome') }}"><br>
         <label>Data de matrícula:</label>
         <input type="date" name="matricula" id=""><br>
         <label>Endereço:</label>
-        <input type="text" name="endereço" id=""><br>
+        <input type="text" name="endereco" id=""><br>
         <label>Transtornos:</label>
         <input type="text" name="transtornos" id=""><br>
         <label>Responsável: </label>
-        <input type="text" name="nome_responsável" id=""><br>
+        <input type="text" name="nome_responsavel" id=""><br>
         <label>Contato:</label>
-        <input type="number" name="numero_responsável" id=""><br>
+        <input type="number" name="numero_responsavel" id=""><br>
         <label>Mensalidade:</label>
         <input type="number" name="mensalidade" id=""><br>
         

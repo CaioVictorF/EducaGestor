@@ -17,8 +17,11 @@ class TurmasController extends Controller
     }
 
     public function show(Turmas $turma){
+        //retorna todos os alunos dessa turma
+        $alunos = $turma->alunos()->orderBy('id')->get();
         
-        return view('turmas.show', ['turma' => $turma]);
+        return view('turmas.show', ['turma' => $turma, 'alunos' => $alunos]);
+    
     }
 
     public function create(){
