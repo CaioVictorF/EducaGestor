@@ -29,7 +29,9 @@ class AlunosController extends Controller
     }
 
     public function show(Alunos $aluno){
-        return view('alunos.show', compact('aluno'));
+        $turma = $aluno->turma; //passa a turma correta de cada aluno
+        return view('alunos.show', ['aluno' => $aluno, 'turma' => $turma]); 
+        //dd($aluno);
     }
 
 }

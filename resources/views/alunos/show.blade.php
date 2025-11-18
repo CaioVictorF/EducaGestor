@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <a href="{{ route('turmas.show', $aluno->id) }}">Voltar</a>
+    <a href="{{ route('turmas.show', ['turma' => $turma->id]) }}">Voltar</a>
     <h2>Dados do Aluno(a)</h2>
     <br>ID: {{ $aluno->id }} <br>
     Aluno(a): {{ $aluno->nome }}<br>

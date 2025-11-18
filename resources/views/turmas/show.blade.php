@@ -14,7 +14,7 @@
     @forelse($alunos as $aluno)
             <br>ID: {{ $aluno->id }} <br>
             Aluno(a): {{ $aluno->nome }}<br>
-            <a href="{{ route('alunos.show', $aluno->id) }}">Visualizar</a><hr>
+            <a href="{{ route('alunos.show', ['aluno' => $aluno->id]) }}">Visualizar</a><hr>
     @empty
         <p>Não há alunos cadastrados nesta turma.</p>
     @endforelse     
