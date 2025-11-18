@@ -28,4 +28,8 @@ class AlunosController extends Controller
         return redirect()->route('turmas.show', $turma->id)->with('success', 'Novo aluno(a) foi criado!');
     }
 
+    public function show(Alunos $aluno){
+        return view('alunos.show', compact('aluno'));
+    }
+
 }

@@ -34,6 +34,8 @@ Route::get('/turmas/{turma}/criar-alunos', [AlunosController::class, 'create'])-
 
 Route::post('/turmas/{turma}/alunos', [AlunosController::class, 'store'])->name('store.alunos');
 
+Route::get('/alunos/{aluno}', [AlunosController::class,'show'])->name('alunos.show');
+
 
 
 

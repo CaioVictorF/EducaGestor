@@ -21,7 +21,6 @@ class TurmasController extends Controller
         $alunos = $turma->alunos()->orderBy('id')->get();
         
         return view('turmas.show', ['turma' => $turma, 'alunos' => $alunos]);
-    
     }
 
     public function create(){
