@@ -34,49 +34,11 @@ Route::get('/turmas/{turma}/criar-alunos', [AlunosController::class, 'create'])-
 
 Route::post('/turmas/{turma}/alunos', [AlunosController::class, 'store'])->name('store.alunos');
 
+Route::get('alunos/{aluno}/edit', [AlunosController::class, 'edit'])->name('alunos.edit');
+
+Route::put('/alunos/{aluno}', [AlunosController::class, 'update'])->name('alunos.update');
+
 Route::get('/alunos/{aluno}', [AlunosController::class,'show'])->name('alunos.show');
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-Route::view('dashboard', 'dashboard')
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
-
-Route::middleware(['auth'])->group(function () {
-    Route::redirect('settings', 'settings/profile');
-
-    Route::get('settings/profile', Profile::class)->name('settings.profile');
-    Route::get('settings/password', Password::class)->name('settings.password');
-    Route::get('settings/appearance', Appearance::class)->name('settings.appearance');
-
-    Route::get('settings/two-factor', TwoFactor::class)
-        ->middleware(
-            when(
-                Features::canManageTwoFactorAuthentication()
-                    && Features::optionEnabled(Features::twoFactorAuthentication(), 'confirmPassword'),
-                ['password.confirm'],
-                [],
-            ),
-        )
-        ->name('two-factor.show');
-});
-
-require __DIR__.'/auth.php';*/

@@ -34,4 +34,25 @@ class AlunosController extends Controller
         //dd($aluno);
     }
 
+    public function edit( Alunos $aluno){
+        $turma = $aluno->turma;
+        return view('alunos.edit', compact ('aluno', 'turma'));
+    }
+
+    public function update(AlunosRequest $request, Alunos $aluno){
+        $request->validated();
+
+        //Editando dados da turma
+        $aluno->update([
+            'nome' => $request->nome,
+            'matricula' => $request->matricula,
+            'endereco' => $request->endereco,
+            'transtornos' => $request->transtornos,
+            'nome_responsavel' => $request->nome_responsavel,
+            'numero_responsavel' => $request->numero_responsavel,
+            'mensalidade' => $request->mensalidade
+        ]);
+        return redirect()->route('turmas.show', ['turma' => $aluno->turma_id])->with('success', 'Aluno atualizado!')->with('updated_id', $aluno->id);
+    }
+
 }

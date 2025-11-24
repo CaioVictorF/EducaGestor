@@ -14,7 +14,15 @@
     @forelse($alunos as $aluno)
             <br>ID: {{ $aluno->id }} <br>
             Aluno(a): {{ $aluno->nome }}<br>
-            <a href="{{ route('alunos.show', ['aluno' => $aluno->id]) }}">Visualizar</a><hr>
+            <a href="{{ route('alunos.show', ['aluno' => $aluno->id]) }}">Visualizar</a>
+            <a href="{{ route('alunos.edit', ['aluno' => $aluno->id]) }}">Editar</a>
+            
+            @if(session('success') && session('updated_id') == $aluno->id)
+                <p style="color: #086;">
+                    {{ session('success') }}
+                </p>
+            @endif
+            <hr>
     @empty
         <p>Não há alunos cadastrados nesta turma.</p>
     @endforelse     
