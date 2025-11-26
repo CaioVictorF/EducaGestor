@@ -16,5 +16,16 @@
     Nome do responsável: {{ $aluno->nome_responsavel }}<br>
     Número do responsável: {{ $aluno->numero_responsavel }}<br>
     Mensalidade: R$ {{ number_format($aluno->mensalidade, 2, ',', '.') }}
+    <form action="{{ route('alunos.destroy', ['aluno' => $aluno->id]) }}" method="post">
+        @csrf
+        @method('delete')
+        <button type="submit" onclick="return confirm('Tem certeza que deseja excluir este aluno(a)?')">Excluir</button>
+        @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+
+    </form>
 </body>
 </html>

@@ -40,5 +40,8 @@ Route::put('/alunos/{aluno}', [AlunosController::class, 'update'])->name('alunos
 
 Route::get('/alunos/{aluno}', [AlunosController::class,'show'])->name('alunos.show');
 
+Route::delete('/destroy-aluno/{aluno}', [AlunosController::class, 'destroy'])->name('alunos.destroy');
+
+
 
 

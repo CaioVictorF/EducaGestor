@@ -55,4 +55,13 @@ class AlunosController extends Controller
         return redirect()->route('turmas.show', ['turma' => $aluno->turma_id])->with('success', 'Aluno atualizado!')->with('updated_id', $aluno->id);
     }
 
+    public function destroy(Alunos $aluno){
+        //pega a turma correta antes de excluir   
+        $turmaId = $aluno->turma_id; 
+
+        $aluno->delete();
+        return redirect()->route('turmas.show', ['turma' => $turmaId])->with('success', 'Aluno excluído(a)!');
+    }
+
+
 }
