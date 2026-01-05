@@ -12,20 +12,35 @@
     <a href="{{ route('alunos.create', ['turma' => $turma->id]) }}">Novo Aluno(a)</a><br>
 
     @forelse($alunos as $aluno)
-            <br>ID: {{ $aluno->id }} <br>
-            Aluno(a): {{ $aluno->nome }}<br>
-            <a href="{{ route('alunos.show', ['aluno' => $aluno->id]) }}">Visualizar</a>
-            <a href="{{ route('alunos.edit', ['aluno' => $aluno->id]) }}">Editar</a>
-            
-            @if(session('success') && session('updated_id') == $aluno->id)
-                <p style="color: #086;">
-                    {{ session('success') }}
-                </p>
-            @endif
-            <hr>
+        <br>ID: {{ $aluno->id }} <br>
+        Aluno(a): {{ $aluno->nome }}<br>
+
+        {{-- STATUS DA MENSALIDADE --}}
+        @if($aluno->isPendente())
+            <strong style="color:red;">Pendente</strong>
+
+            <form action="{{ route('alunos.pagar', $aluno->id) }}" method="POST" style="display:inline;">
+                @csrf
+                @method('PATCH')
+                <button type="submit">Pago</button>
+            </form>
+        @else
+            <strong style="color:green;">Em dia</strong>
+        @endif
+
+        <br>
+        <a href="{{ route('alunos.show', ['aluno' => $aluno->id]) }}">Visualizar</a>
+        <a href="{{ route('alunos.edit', ['aluno' => $aluno->id]) }}">Editar</a>
+
+        @if(session('success') && session('updated_id') == $aluno->id)
+            <p style="color: #086;">
+                {{ session('success') }}
+            </p>
+        @endif
+        <hr>
+
     @empty
         <p>Não há alunos cadastrados nesta turma.</p>
-    @endforelse     
+    @endforelse
 </body>
-</html>    
-</div>
+</html>

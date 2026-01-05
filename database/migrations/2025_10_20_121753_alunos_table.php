@@ -18,8 +18,9 @@ return new class extends Migration
             $table->string('endereco');
             $table->string('transtornos');
             $table->string('nome_responsavel');
-            $table->integer('numero_responsavel');
-            $table->decimal('mensalidade');
+            $table->string('numero_responsavel');
+            $table->decimal('mensalidade', 8,2);
+            $table->datetime('proxima_cobranca');
 
             $table->foreignId('turma_id')->constrained('turmas')->onDelete('cascade');
 

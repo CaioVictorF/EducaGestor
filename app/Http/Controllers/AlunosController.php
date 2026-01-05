@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\AlunosRequest;
 use App\Models\Alunos;
 use App\Models\Turmas;
+use Carbon\Carbon;
 
 class AlunosController extends Controller
 {
@@ -12,7 +13,7 @@ class AlunosController extends Controller
         return view('alunos.create', compact('turma'));
     }
 
-     public function store(AlunosRequest $request, Turmas $turma){
+    public function store(AlunosRequest $request, Turmas $turma){
         $request->validated();
 
         Alunos::create([
@@ -25,7 +26,9 @@ class AlunosController extends Controller
             'mensalidade' => $request->mensalidade,
             'turma_id' => $turma->id
         ]);
-        return redirect()->route('turmas.show', $turma->id)->with('success', 'Novo aluno(a) foi criado!');
+
+        return redirect()->route('turmas.show', $turma->id)
+        ->with('success', 'Novo aluno(a) foi criado!');
     }
 
     public function show(Alunos $aluno){
@@ -52,7 +55,8 @@ class AlunosController extends Controller
             'numero_responsavel' => $request->numero_responsavel,
             'mensalidade' => $request->mensalidade
         ]);
-        return redirect()->route('turmas.show', ['turma' => $aluno->turma_id])->with('success', 'Aluno atualizado!')->with('updated_id', $aluno->id);
+        return redirect()->route('turmas.show', ['turma' => $aluno->turma_id])
+        ->with('success', 'Aluno atualizado!')->with('updated_id', $aluno->id);
     }
 
     public function destroy(Alunos $aluno){
@@ -60,8 +64,13 @@ class AlunosController extends Controller
         $turmaId = $aluno->turma_id; 
 
         $aluno->delete();
-        return redirect()->route('turmas.show', ['turma' => $turmaId])->with('success', 'Aluno excluído(a)!');
+        return redirect()->route('turmas.show', ['turma' => $turmaId])
+        ->with('success', 'Aluno excluído(a)!');
     }
 
+    public function pagarMensalidade(Alunos $aluno){
+        $aluno->pagarMensalidade(); // chama a função do Model
+        return back()->with('success', 'Mensalidade paga!');
+    }
 
 }

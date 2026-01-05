@@ -20,11 +20,6 @@
         @csrf
         @method('delete')
         <button type="submit" onclick="return confirm('Tem certeza que deseja excluir este aluno(a)?')">Excluir</button>
-        @if(session('success'))
-            <div class="alert alert-success">
-                {{ session('success') }}
-            </div>
-        @endif
 
     </form>
 </body>

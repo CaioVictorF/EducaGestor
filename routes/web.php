@@ -42,6 +42,5 @@ Route::get('/alunos/{aluno}', [AlunosController::class,'show'])->name('alunos.sh
 
 Route::delete('/destroy-aluno/{aluno}', [AlunosController::class, 'destroy'])->name('alunos.destroy');
 
-
-
+Route::patch('/alunos/{aluno}/pagar', [AlunosController::class, 'pagarMensalidade'])->name('alunos.pagar');
 
